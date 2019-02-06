@@ -7,7 +7,7 @@ hello
 def reverse
 puts "this is a test string".split(" ").reverse.join(" ")
 end
-reverse
+# reverse
 
 
 # 2. given a word output true if it's a palindrome and false if it is not
@@ -37,7 +37,7 @@ def palindrome
   end
 
 
-palindrome
+# palindrome
 
 
 # 1. split sentence into characters
@@ -65,7 +65,7 @@ puts hash
 
 end
 
-letter_counter
+# letter_counter
 
 
 # 4. given an index N find the value at N in the fibonacci sequence recursively
@@ -83,7 +83,7 @@ def fib(index)
   end
 end
 
-puts fib(5)
+# puts fib(5)
 
 
 # 5. given a number N where 1 billion > N > 0, n is a whole number
@@ -169,4 +169,38 @@ def fizzbuzz
   end
 end
 
-fizzbuzz
+# fizzbuzz
+
+
+# Given 3 integers how do you find the middle number?
+
+
+
+def find_middle (num1, num2, num3)
+  puts [num3, num2, num1].sort()[1]
+end
+
+find_middle(15, 10004838, 7)
+
+
+def military_time(military_time)
+  if military_time > 12
+    standard_time = military_time - 12
+  end
+  puts standard_time
+end
+
+military_time(13)
+
+def custom_join(array)
+  array.map do |word|
+      if array.index(word) != array.index(array[-1])
+        print word + ','
+      else
+        print word
+    end
+  end
+
+end
+array = ["hi", "hello", "hey"]
+custom_join(array)
