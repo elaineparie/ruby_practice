@@ -183,11 +183,9 @@ end
 find_middle(15, 10004838, 7)
 
 
-def military_time(military_time)
-  if military_time > 12
-    standard_time = military_time - 12
-  end
-  puts standard_time
+def military_time(standard_time)
+  if standard_time.include?('p')
+    military_time =
 end
 
 military_time(13)
@@ -204,3 +202,5 @@ def custom_join(array)
 end
 array = ["hi", "hello", "hey"]
 custom_join(array)
+
+# Given n people, find total number of pairs can be formed.  
