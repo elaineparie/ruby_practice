@@ -73,6 +73,7 @@ end
 # indices: 1,2,3,4,5,6,7 ,8
 
 
+
 def fib(index)
   if index == 1
     return 1
@@ -180,15 +181,23 @@ def find_middle (num1, num2, num3)
   puts [num3, num2, num1].sort()[1]
 end
 
-find_middle(15, 10004838, 7)
+# find_middle(15, 10004838, 7)
 
 
 def military_time(standard_time)
-  if standard_time.include?('p')
-    military_time =
+  if standard_time.include?('a')
+      standard_time = standard_time.gsub!(":", ".")
+      standard_time = standard_time.split('a')[0].to_f
+      # standard_time = standard_time[0]
+      # standard_time = standard_time.to_f
+      military_time = standard_time + 12
+      military_time = military_time.to_s.gsub!(".", ":")
+      military_time
 end
 
-military_time(13)
+end
+puts military_time("8:21am")
+
 
 def custom_join(array)
   array.map do |word|
@@ -201,6 +210,22 @@ def custom_join(array)
 
 end
 array = ["hi", "hello", "hey"]
-custom_join(array)
+# custom_join(array)
 
 # Given n people, find total number of pairs can be formed.  
+
+def pairs(n)
+  n * (n - 1)/2
+end
+
+
+puts pairs(100)
+
+
+# pi * r squared
+def area_of_circle(radius)
+  area = Math::PI * (radius ** 2)
+  puts area
+end
+
+area_of_circle(3)
