@@ -229,3 +229,115 @@ def area_of_circle(radius)
 end
 
 area_of_circle(3)
+
+def area_of_triangle(base, height)
+  (base * height)/ 2
+end
+
+puts area_of_triangle(15, 8)
+
+
+def reverse_array(array)
+  array.each_index.map { |i| array[-1-i] }
+  end
+
+array = [1, 2, 3]
+puts reverse_array(array)
+
+def reverse_words(sentence)
+sentence = sentence.split("")
+punctuation = sentence[-1]
+sentence.pop
+puts sentence.join.split(" ").reverse.join(" ") + punctuation
+
+end
+
+sentence = "hi there!"
+reverse_words(sentence)
+
+
+# 3. Given an array of 5 integers, write a method to see if the sum of two numbers in array is equal to 10.
+
+# output = [1,2,3].reduce(0) {|result, current| result += current }
+
+SUMS = [[1, 9], [2, 8], [3, 7], [4, 6], [5, 5]]
+
+def equal_to_ten?(array)
+  SUMS.each do |pair|
+  if array.include?(pair[0]) && array.include?(pair[1])
+    puts true
+    break
+    end
+  end
+end
+
+num_array = [7, 3, 2, 2]
+equal_to_ten?(num_array)
+
+
+def sum_of_array(window)
+ (1..window).reduce(:+)
+end
+
+
+window = 5
+puts sum_of_array(window)
+
+def dynamic_fib(n)
+  memo = {}
+  if memo.include?(n)
+    memo[n]
+  elsif n <=2
+    f = 1
+  else
+    f = fib(n-1) + fib(n-2)
+    memo[n] = f
+    puts f
+end
+end
+
+puts dynamic_fib(6)
+
+
+json_response = {
+	"users":[
+		{
+			id: 123,
+			name: "Alex"
+		},
+		{
+			id: 124,
+			name: "Tarzan"
+		}
+	]
+}
+
+# def mutate_json(json_response) {
+# 	users_array = json_response["users"];
+#
+# 	mutated_array = [];
+# 	for (let i=0, i< users_array.length, i++) {
+# 		new_object = {
+# 			userId: users_array[i]["id"],
+# 			userName: users_array[i]["name"]
+# 		}
+# 		mutated_array.push(new_object);
+# 	}
+# 	return mutated_array;
+# }
+
+
+def mutate_json(json_response)
+  mutated_array = []
+  users_array = json_response[:users]
+  new_object = {}
+  users_array.each do |user|
+    new_object[:id] = user[:name]
+    new_object[:name] = user[:id]
+  end
+  mutated_array << new_object
+  mutated_array
+  # binding.pry
+end
+
+puts mutate_json(json_response)
